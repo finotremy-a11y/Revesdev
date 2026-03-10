@@ -10,7 +10,3 @@ bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 bundle exec rails db:migrate
-# Load Solid Queue, Cache and Cable schemas into the primary database
-bundle exec rails db:schema:load:queue
-bundle exec rails db:schema:load:cache
-bundle exec rails db:schema:load:cable

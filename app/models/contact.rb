@@ -8,6 +8,6 @@ class Contact < ApplicationRecord
   private
 
   def send_notification_email
-    ContactMailer.with(contact: self).new_contact_email.deliver_later
+    ContactMailer.with(contact: self).new_contact_email.deliver_now
   end
 end
