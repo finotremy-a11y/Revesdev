@@ -10,9 +10,6 @@ group :production do
 end
 
 # Use sqlite3 for development and test
-group :development, :test do
-  gem "sqlite3", "~> 2.1"
-end
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -73,3 +70,5 @@ group :test do
 end
 
 gem "cloudinary", "~> 2.4"
+
+gem "sqlite3", "~> 2.1", groups: [:development, :test]
