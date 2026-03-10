@@ -63,13 +63,12 @@ Rails.application.configure do
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              "smtp.gmail.com",
-    port:                 465,
-    domain:               ENV.fetch("HOST", "revesdev.fr"),
-    user_name:            ENV["SMTP_USERNAME"],
-    password:             ENV["SMTP_PASSWORD"],
-    authentication:       "plain",
-    tls:                  true
+    address:        "smtp.resend.com",
+    port:           465,
+    user_name:      "resend",
+    password:       ENV["RESEND_API_KEY"],
+    authentication: :plain,
+    tls:            true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
