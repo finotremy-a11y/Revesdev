@@ -18,7 +18,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to root_url
-    assert_equal "Merci pour votre message. Je vous recontacte très vite !", flash[:notice]
+    assert_redirected_to confirmation_contact_path(Contact.last)
+    assert_equal "Merci pour votre message !", flash[:notice]
   end
 end

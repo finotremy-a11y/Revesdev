@@ -71,4 +71,4 @@ end
 
 gem "cloudinary", "~> 1.28"
 
-gem "sqlite3", "~> 2.1", groups: [:development, :test]
+gem "sqlite3", "~> 2.1", groups: [ :development, :test ]

@@ -6,6 +6,6 @@ class ContactMailerTest < ActionMailer::TestCase
     mail = ContactMailer.with(contact: contact).new_contact_email
     assert_equal "Nouveau Message de: MyString - MyString", mail.subject
     assert_equal [ "remyfinot.pro@gmail.com" ], mail.to
-    assert_equal [ "MyString" ], mail.from
+    assert_equal [ "contact@revesdev.fr" ], mail.from
   end
 end

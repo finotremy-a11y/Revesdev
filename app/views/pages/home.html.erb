@@ -1,7 +1,7 @@
 <!-- SEO Meta Tags for Home -->
 <% content_for :title, "Développeur Full-Stack Ruby on Rails | Création d'Applications Web & SaaS — RêvesDev" %>
 <% content_for :description, "Je transforme vos idées en applications web performantes. Freelance Full-Stack spécialisé en Ruby on Rails, React et PostgreSQL. Créons votre MVP ou SaaS." %>
-<% content_for :og_image, asset_url('icon.png') %>
+<% content_for :og_image, "#{request.base_url}/icon.png" %>
 
 <% content_for :json_ld_schema do %>
   {
@@ -13,7 +13,7 @@
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "RêvesDev",
-      "image": "<%= asset_url('icon.png') %>",
+      "image": "<%= "#{request.base_url}/icon.png" %>",
       "description": "Développeur Full-Stack spécialisé en Ruby on Rails",
       "address": {
         "@type": "PostalAddress",
