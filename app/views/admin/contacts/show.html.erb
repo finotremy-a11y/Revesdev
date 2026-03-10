@@ -1,0 +1,40 @@
+<div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <div>
+    <div class="flex items-center space-x-3 text-sm text-slate-500 dark:text-slate-400 mb-3">
+        <%= link_to "Messages", admin_contacts_path, class: "hover:text-primary transition-colors" %>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>Lecture</span>
+    </div>
+    <h1 class="text-3xl font-bold font-heading mb-2">Message de <%= @contact.name %></h1>
+  </div>
+  
+  <div class="flex items-center space-x-2">
+      <a href="mailto:<%= @contact.email %>" class="inline-flex items-center justify-center space-x-2 bg-primary text-white hover:bg-primary/90 transition-colors px-4 py-2 rounded-lg font-medium">
+          <i class="ri-reply-line"></i>
+          <span>Répondre par email</span>
+      </a>
+      <%= button_to admin_contact_path(@contact), method: :delete, data: { turbo_confirm: "Êtes-vous sûr de supprimer ce message ?" }, class: "inline-flex items-center justify-center w-10 h-10 bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-colors rounded-lg font-medium" do %>
+          <i class="ri-delete-bin-line"></i>
+      <% end %>
+  </div>
+</div>
+
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm overflow-hidden">
+  <div class="p-6 md:p-8 border-b border-slate-200 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50 dark:bg-slate-800/50">
+      <div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Expéditeur</p>
+          <p class="font-bold text-lg"><%= @contact.name %></p>
+          <a href="mailto:<%= @contact.email %>" class="text-primary hover:underline"><%= @contact.email %></a>
+      </div>
+      <div class="sm:text-right">
+          <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Reçu le</p>
+          <p class="font-medium"><%= @contact.created_at.strftime("%d %B %Y à %H:%M") %></p>
+      </div>
+  </div>
+  <div class="p-6 md:p-8">
+      <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 font-medium uppercase tracking-wider">Contenu du message</p>
+      <div class="prose dark:prose-invert max-w-none text-slate-800 dark:text-slate-200 whitespace-pre-wrap leading-relaxed">
+          <%= @contact.message %>
+      </div>
+  </div>
+</div>

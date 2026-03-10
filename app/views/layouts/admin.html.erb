@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-gray-100 dark:bg-slate-950">
+  <head>
+    <title>Administration - RêvesDev</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="antialiased text-slate-800 dark:text-slate-200 min-h-screen flex flex-col md:flex-row">
+    
+    <!-- Sidebar -->
+    <aside class="w-full md:w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-white/10 flex-shrink-0">
+      <div class="h-20 flex items-center px-6 border-b border-slate-200 dark:border-white/10">
+         <%= link_to root_path, class: "font-heading font-bold text-xl tracking-tighter" do %>
+            Dev<span class="text-primary">Studio</span> <span class="text-xs text-slate-400 font-normal">Admin</span>
+        <% end %>
+      </div>
+      
+      <nav class="p-4 space-y-2">
+        <%= link_to admin_root_path, class: "flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors #{current_page?(admin_root_path) ? 'bg-primary/10 text-primary font-medium' : ''}" do %>
+          <i class="ri-dashboard-line text-lg"></i>
+          <span>Tableau de bord</span>
+        <% end %>
+        
+        <%= link_to admin_projects_path, class: "flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors #{current_page?(admin_projects_path) ? 'bg-primary/10 text-primary font-medium' : ''}" do %>
+          <i class="ri-folder-settings-line text-lg"></i>
+          <span>Portfolio</span>
+        <% end %>
+        
+        <%= link_to admin_contacts_path, class: "flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-slate-100 dark:hover:bg-white/5 transition-colors #{current_page?(admin_contacts_path) ? 'bg-primary/10 text-primary font-medium' : ''}" do %>
+          <i class="ri-mail-line text-lg"></i>
+          <span>Messages</span>
+        <% end %>
+      </nav>
+      
+      <div class="absolute bottom-0 w-full md:w-64 p-4 border-t border-slate-200 dark:border-white/10">
+        <%= button_to session_path, method: :delete, class: "flex items-center space-x-3 px-4 py-3 w-full text-left rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors" do %>
+            <i class="ri-logout-box-r-line text-lg"></i>
+            <span>Déconnexion</span>
+        <% end %>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden">
+        <!-- Top header flash -->
+        <div class="px-8 py-4 z-50">
+            <%= render "shared/alerts" %>
+        </div>
+
+        <!-- Content scrollable -->
+        <div class="flex-1 overflow-y-auto px-4 md:px-8 py-6">
+            <%= yield %>
+        </div>
+    </main>
+
+  </body>
+</html>

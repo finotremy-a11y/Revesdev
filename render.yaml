@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: novaweb
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: novaweb-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+
+databases:
+  - name: novaweb-db
+    databaseName: novaweb_production
+    user: novaweb_user
+    plan: starter

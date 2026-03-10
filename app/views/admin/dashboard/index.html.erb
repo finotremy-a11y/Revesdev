@@ -1,0 +1,77 @@
+<div class="mb-8">
+  <h1 class="text-3xl font-bold font-heading mb-2">Tableau de bord</h1>
+  <p class="text-slate-500 dark:text-slate-400">Bienvenue dans votre espace d'administration.</p>
+</div>
+
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+  <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between">
+    <div>
+      <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Projets Portfolio</p>
+      <h3 class="text-3xl font-bold font-heading"><%= @projects_count %></h3>
+    </div>
+    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+      <i class="ri-folder-settings-line text-2xl"></i>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between">
+    <div>
+      <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Messages reçus</p>
+      <h3 class="text-3xl font-bold font-heading"><%= @contacts_count %></h3>
+    </div>
+    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+      <i class="ri-mail-line text-2xl"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Raccourcis -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <!-- Derniers messages -->
+  <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm overflow-hidden">
+    <div class="px-6 py-4 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
+      <h2 class="font-bold font-heading">Messages récents</h2>
+      <%= link_to "Voir tout", admin_contacts_path, class: "text-sm text-primary hover:underline" %>
+    </div>
+    <div class="divide-y divide-slate-200 dark:divide-white/10">
+      <% if @recent_contacts.any? %>
+        <% @recent_contacts.each do |contact| %>
+          <div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p class="font-medium"><%= contact.name %></p>
+              <p class="text-sm text-slate-500 dark:text-slate-400 truncate max-w-[200px]"><%= contact.subject.presence || "Sans sujet" %></p>
+            </div>
+            <div class="text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+              <%= time_ago_in_words(contact.created_at) %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="px-6 py-8 text-center text-slate-500">Aucun message pour le moment.</div>
+      <% end %>
+    </div>
+  </div>
+  
+  <!-- Actions Rapides -->
+  <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-white/10">
+          <h2 class="font-bold font-heading">Actions rapides</h2>
+      </div>
+      <div class="p-6 grid gap-4 grid-cols-1 sm:grid-cols-2">
+          <%= link_to new_admin_project_path, class: "flex flex-col items-center justify-center p-6 rounded-xl border-2 border-dashed border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary/5 transition-colors group text-center" do %>
+              <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <i class="ri-add-line text-xl"></i>
+              </div>
+              <span class="font-medium">Créer un projet</span>
+          <% end %>
+          
+          <%= link_to root_path, target: "_blank", class: "flex flex-col items-center justify-center p-6 rounded-xl border-2 border-dashed border-slate-200 dark:border-white/10 hover:border-secondary hover:bg-secondary/5 transition-colors group text-center" do %>
+              <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:bg-secondary group-hover:text-white transition-colors">
+                  <i class="ri-external-link-line text-xl"></i>
+              </div>
+              <span class="font-medium">Voir le site</span>
+          <% end %>
+      </div>
+  </div>
+</div>

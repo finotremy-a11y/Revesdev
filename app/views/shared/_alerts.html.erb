@@ -1,0 +1,19 @@
+<% if flash.any? %>
+  <div class="fixed top-24 right-4 z-[60] flex flex-col gap-2">
+    <% flash.each do |type, msg| %>
+      <% 
+        bg_class = case type.to_sym
+                   when :notice, :success then "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
+                   when :alert, :error then "bg-red-500/10 border-red-500/20 text-red-400"
+                   else "bg-primary/10 border-primary/20 text-primary"
+                   end
+      %>
+      <div class="glass <%= bg_class %> px-4 py-3 rounded-lg shadow-lg flex items-center justify-between min-w-[300px] animate-fade-in-down">
+        <span><%= msg %></span>
+        <button onclick="this.parentElement.remove()" class="ml-4 hover:opacity-75 transition-opacity">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+    <% end %>
+  </div>
+<% end %>

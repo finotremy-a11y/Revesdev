@@ -1,0 +1,19 @@
+<div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+  <div>
+    <div class="flex items-center space-x-3 text-sm text-slate-500 dark:text-slate-400 mb-3">
+        <%= link_to "Portfolio", admin_projects_path, class: "hover:text-primary transition-colors" %>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>Édition</span>
+    </div>
+    <h1 class="text-3xl font-bold font-heading mb-2">Modifier le projet</h1>
+  </div>
+  
+  <%= button_to admin_project_path(@project), method: :delete, data: { turbo_confirm: "Êtes-vous sûr de vouloir supprimer ce projet ?" }, class: "inline-flex items-center justify-center space-x-2 text-red-500 hover:bg-red-500/10 transition-colors px-4 py-2 rounded-lg font-medium" do %>
+      <i class="ri-delete-bin-line"></i>
+      <span>Supprimer ce projet</span>
+  <% end %>
+</div>
+
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm p-6 md:p-8">
+  <%= render "form", project: @project %>
+</div>

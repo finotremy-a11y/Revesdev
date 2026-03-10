@@ -1,0 +1,73 @@
+<%= form_with(model: [:admin, project], class: "space-y-6") do |form| %>
+  <% if project.errors.any? %>
+    <div class="bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-4 rounded-xl border border-red-200 dark:border-red-800">
+      <h2 class="font-bold mb-2"><%= pluralize(project.errors.count, "erreur") %> ont empêché l'enregistrement :</h2>
+      <ul class="list-disc leading-relaxed ml-4">
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="space-y-6">
+      <div>
+        <%= form.label :title, "Titre du projet", class: "block font-medium mb-2" %>
+        <%= form.text_field :title, class: "w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+      </div>
+
+      <div>
+        <%= form.label :description, "Description", class: "block font-medium mb-2" %>
+        <%= form.text_area :description, rows: 4, class: "w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+      </div>
+      
+      <div>
+        <%= form.label :tech_stack, "Technologies (JSON ou Array manuel)", class: "block font-medium mb-2" %>
+        <p class="text-xs text-slate-500 mb-2">Exemple: ["Ruby on Rails", "Tailwind CSS"]</p>
+        <%= form.text_area :tech_stack, rows: 2, value: project.tech_stack.present? ? project.tech_stack.to_json : "", class: "w-full font-mono text-sm px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <div>
+        <%= form.label :repo_url, "Lien du dépôt (GitHub, GitLab, etc.)", class: "block font-medium mb-2" %>
+        <%= form.text_field :repo_url, class: "w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+      </div>
+
+      <div>
+        <%= form.label :live_url, "Lien du site en production", class: "block font-medium mb-2" %>
+        <%= form.text_field :live_url, class: "w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-4">
+          <div>
+            <%= form.label :position, "Ordre d'affichage", class: "block font-medium mb-2" %>
+            <%= form.number_field :position, class: "w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all" %>
+          </div>
+          
+          <div class="flex items-end pb-3">
+              <label class="flex items-center space-x-3 cursor-pointer">
+                  <%= form.check_box :featured, class: "w-5 h-5 rounded text-primary focus:ring-primary dark:bg-slate-900 dark:border-white/10" %>
+                  <span class="font-medium">Mettre en vedette</span>
+              </label>
+          </div>
+      </div>
+
+      <div>
+        <%= form.label :cover_image, "Image de couverture", class: "block font-medium mb-2" %>
+        <% if project.cover_image.attached? %>
+            <div class="mb-3">
+                <%= image_tag project.cover_image.variant(resize_to_limit: [300, 200]), class: "rounded-lg border border-slate-200 dark:border-white/10" %>
+            </div>
+        <% end %>
+        <%= form.file_field :cover_image, class: "block w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 transition-all font-sans cursor-pointer bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-xl" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-6 border-t border-slate-200 dark:border-white/10 flex items-center space-x-4">
+    <%= form.submit "Enregistrer le projet", class: "bg-primary text-white hover:bg-primary/90 transition-colors px-6 py-3 rounded-xl font-medium cursor-pointer" %>
+    <%= link_to "Annuler", admin_projects_path, class: "text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors font-medium px-4 py-3 hover:bg-slate-100 dark:hover:bg-white/5 rounded-xl" %>
+  </div>
+<% end %>

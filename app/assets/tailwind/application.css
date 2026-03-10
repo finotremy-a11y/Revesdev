@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020617;
+  /* slate-950 */
+  --color-surface: #0f172a;
+  /* slate-900 */
+  --color-primary: #6366f1;
+  /* indigo-500 */
+  --color-secondary: #22d3ee;
+  /* cyan-400 */
+  --font-sans: "Inter", "sans-serif";
+  --font-heading: "Outfit", "sans-serif";
+}
+
+
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
