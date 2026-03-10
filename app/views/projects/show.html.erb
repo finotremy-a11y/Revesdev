@@ -42,14 +42,14 @@
         <div class="glass p-6 rounded-2xl flex flex-col gap-4">
           <h3 class="font-bold text-lg text-white mb-2">Liens du projet</h3>
           
-          <% if @project.live_url.present? %>
-            <%= link_to @project.live_url, target: "_blank", class: "flex items-center justify-center w-full bg-primary hover:bg-indigo-600 text-white px-4 py-3 rounded-xl font-medium transition-colors" do %>
+          <% if safe_url(@project.live_url) %>
+            <%= link_to safe_url(@project.live_url), target: "_blank", rel: "noopener noreferrer", class: "flex items-center justify-center w-full bg-primary hover:bg-indigo-600 text-white px-4 py-3 rounded-xl font-medium transition-colors" do %>
               <i class="ri-external-link-line mr-2"></i> Voir le site en ligne
             <% end %>
           <% end %>
 
-          <% if @project.repo_url.present? %>
-            <%= link_to @project.repo_url, target: "_blank", class: "flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-3 rounded-xl font-medium transition-colors" do %>
+          <% if safe_url(@project.repo_url) %>
+            <%= link_to safe_url(@project.repo_url), target: "_blank", rel: "noopener noreferrer", class: "flex items-center justify-center w-full bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-3 rounded-xl font-medium transition-colors" do %>
               <i class="ri-github-fill mr-2 text-lg"></i> Code source
             <% end %>
           <% end %>
