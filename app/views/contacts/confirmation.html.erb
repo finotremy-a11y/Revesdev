@@ -1,0 +1,82 @@
+<% content_for :title, "Message Reçu — RêvesDev" %>
+<% content_for :description, "Votre message a été reçu. Nous vous répondrons rapidement." %>
+
+<main class="min-h-screen flex items-center justify-center px-4 py-32">
+  <div class="max-w-2xl w-full text-center">
+    <!-- Success Icon -->
+    <div class="mb-8 animate-bounce">
+      <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-500/20 border-2 border-green-500/50">
+        <i class="ri-check-line text-5xl text-green-400"></i>
+      </div>
+    </div>
+
+    <!-- Main Message -->
+    <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Message reçu ✅</h1>
+    <p class="text-xl text-slate-400 mb-8">
+      Merci pour votre message, <strong class="text-white"><%= @contact.name %></strong> !
+    </p>
+
+    <!-- Confirmation Details -->
+    <div class="glass p-8 rounded-2xl mb-12 text-left">
+      <h2 class="text-lg font-semibold text-white mb-6">Récapitulatif de votre message :</h2>
+      
+      <div class="space-y-4">
+        <div>
+          <span class="text-slate-400">📧 Email :</span>
+          <p class="text-white font-medium"><%= mail_to @contact.email %></p>
+        </div>
+        
+        <% if @contact.subject.present? %>
+          <div>
+            <span class="text-slate-400">📝 Sujet :</span>
+            <p class="text-white font-medium"><%= @contact.subject %></p>
+          </div>
+        <% end %>
+        
+        <div>
+          <span class="text-slate-400">💬 Message :</span>
+          <p class="text-slate-300 mt-2 p-4 bg-slate-900/50 rounded-lg whitespace-pre-wrap"><%= truncate(@contact.message, length: 300) %></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="mb-12">
+      <h2 class="text-lg font-semibold text-white mb-6">Prochaines étapes :</h2>
+      <ul class="text-slate-300 space-y-3 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="text-primary font-bold mt-1">1.</span>
+          <span>J'ai reçu votre message et vais l'examiner attentivement.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary font-bold mt-1">2.</span>
+          <span>Je vous recontacterai par email à <strong><%= @contact.email %></strong> sous 24 à 48h.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-primary font-bold mt-1">3.</span>
+          <span>Nous discuterons de vos besoins et définirons les prochaines étapes.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <%= link_to root_path, class: "glass text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all duration-300" do %>
+        <i class="ri-arrow-left-line mr-2"></i>Retour à l'accueil
+      <% end %>
+      
+      <%= link_to projects_path, class: "bg-primary hover:bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgb(99,102,241,0.39)]" do %>
+        <i class="ri-briefcase-line mr-2"></i>Voir mon portfolio
+      <% end %>
+    </div>
+
+    <!-- Additional Help -->
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <p class="text-slate-400 mb-4">Avez-vous des questions supplémentaires ?</p>
+      <p class="text-slate-500 text-sm">
+        Vous pouvez aussi me joindre directement : 
+        <a href="mailto:remyfinot.pro@gmail.com" class="text-primary hover:underline">remyfinot.pro@gmail.com</a>
+      </p>
+    </div>
+  </div>
+</main>

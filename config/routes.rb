@@ -10,12 +10,20 @@ Rails.application.routes.draw do
   root "pages#home"
   get "about", to: "pages#about"
   get "services", to: "pages#services"
+  get "mentions-legales", to: "pages#mentions_legales", as: :mentions_legales
+  get "politique-de-confidentialite", to: "pages#politique_confidentialite", as: :politique_confidentialite
+  get "cgu", to: "pages#cgu", as: :cgu
+  get "sitemap.xml", to: "pages#sitemap", as: :sitemap, defaults: { format: :xml }
 
   # Portfolio
   resources :projects, only: [ :index, :show ], path: "portfolio"
 
   # Formulaire de contact public
-  resources :contacts, only: [ :new, :create ], path: "contact"
+  resources :contacts, only: [ :new, :create ], path: "contact" do
+    member do
+      get :confirmation
+    end
+  end
 
   # Espace d'administration protégé
   namespace :admin do

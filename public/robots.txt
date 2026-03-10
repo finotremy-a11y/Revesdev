@@ -1,1 +1,19 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# RobotS.txt - Directives pour les moteurs de recherche
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /rails/
+Disallow: /?
+Disallow: /search
+Disallow: /sessions/
+
+# Specific rules for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://revesdev.fr/sitemap.xml

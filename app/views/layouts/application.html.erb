@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
   <head>
-    <title><%= content_for(:title) || "RêvesDev | Développeur Full-Stack" %></title>
+    <title><%= content_for(:title) || "RêvesDev | Développeur Full-Stack Rails" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Remy Finot, développeur Full-Stack spécialisé en Ruby on Rails. Création de sites web, applications SaaS et portfolios. Basé en France, disponible pour vos projets." %>">
+    <meta name="robots" content="index, follow">
+
+    <%# Open Graph %>
+    <meta property="og:site_name" content="RêvesDev">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "RêvesDev | Développeur Full-Stack Rails" %>">
+    <meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Remy Finot, développeur Full-Stack spécialisé en Ruby on Rails. Création de sites web, applications SaaS et portfolios." %>">
+    <meta property="og:image" content="<%= content_for?(:og_image) ? yield(:og_image) : asset_path('icon.png') %>">
+
+    <%# Twitter/X Card %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "RêvesDev | Développeur Full-Stack Rails" %>">
+    <meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "Remy Finot, développeur Full-Stack spécialisé en Ruby on Rails." %>">
+
+    <%# Canonical %>
+    <link rel="canonical" href="<%= request.original_url %>">
+
+    <%# JSON-LD Structured Data %>
+    <%= render "shared/json_ld" %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,20 +46,20 @@
 
   <body class="antialiased selection:bg-primary selection:text-white bg-background text-slate-50">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass top-0 transition-all duration-300">
+    <nav class="fixed w-full z-50 glass top-0 transition-all duration-300" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <%= link_to root_path, class: "font-heading font-bold text-2xl tracking-tighter text-white" do %>
+                    <%= link_to root_path, class: "font-heading font-bold text-2xl tracking-tighter text-white", aria_label: "RêvesDev Home" do %>
                         Rêves<span class="text-secondary">Dev</span>.
                     <% end %>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <%= link_to "Services", services_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium" %>
-                        <%= link_to "Portfolio", projects_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium" %>
-                        <%= link_to "À propos", about_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium" %>
-                        <%= link_to "Me Contacter", new_contact_path, class: "bg-primary/20 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-all duration-300 px-5 py-2 rounded-full font-medium shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]" %>
+                    <div class="ml-10 flex items-baseline space-x-8" role="menubar">
+                        <%= link_to "Services", services_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium", role: "menuitem" %>
+                        <%= link_to "Portfolio", projects_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium", role: "menuitem" %>
+                        <%= link_to "À propos", about_path, class: "text-slate-300 hover:text-white transition-colors px-3 py-2 rounded-md font-medium", role: "menuitem" %>
+                        <%= link_to "Me Contacter", new_contact_path, class: "bg-primary/20 text-primary border border-primary/30 hover:bg-primary hover:text-white transition-all duration-300 px-5 py-2 rounded-full font-medium shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]", role: "menuitem" %>
                     </div>
                 </div>
             </div>
@@ -49,20 +71,27 @@
     <%= yield %>
 
     <!-- Footer -->
-    <footer id="contact" class="border-t border-white/5 bg-surface pt-20 pb-10 mt-20">
+    <footer id="contact" class="border-t border-white/5 bg-surface pt-20 pb-10 mt-20" role="contentinfo">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="font-heading text-4xl font-bold mb-6">Prêt à démarrer un projet ?</h2>
             <p class="text-slate-400 mb-10">Que vous ayez une idée précise ou besoin d'un audit technique, je suis disponible pour en discuter.</p>
-            <%= link_to new_contact_path, class: "inline-flex items-center text-xl font-bold text-white bg-primary hover:bg-indigo-600 px-8 py-4 rounded-full transition-all group" do %>
+            <%= link_to new_contact_path, class: "inline-flex items-center text-xl font-bold text-white bg-primary hover:bg-indigo-600 px-8 py-4 rounded-full transition-all group", aria_label: "Start a project discussion with me" do %>
                 <i class="ri-mail-send-line mr-3 text-2xl group-hover:-translate-y-1 transition-transform"></i>
                 Travaillons ensemble
             <% end %>
             
-            <div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-                <p>&copy; <%= Time.current.year %> RêvesDev. Tous droits réservés.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://github.com/finotremy-a11y" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="ri-github-fill text-xl"></i></a>
-                    <a href="https://www.linkedin.com/in/remy-finot-6253463a3" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><i class="ri-linkedin-fill text-xl"></i></a>
+            <div class="mt-20 pt-8 border-t border-white/10 text-sm text-slate-500">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p>&copy; <%= Time.current.year %> RêvesDev — Remy Finot. Tous droits réservés.</p>
+                    <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="Legal links">
+                        <%= link_to "Mentions légales", mentions_legales_path, class: "hover:text-white transition-colors" %>
+                        <%= link_to "Politique de confidentialité", politique_confidentialite_path, class: "hover:text-white transition-colors" %>
+                        <%= link_to "CGU", cgu_path, class: "hover:text-white transition-colors" %>
+                    </nav>
+                    <div class="flex space-x-6" aria-label="Social media links">
+                        <a href="https://github.com/finotremy-a11y" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Visit my GitHub profile"><i class="ri-github-fill text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/remy-finot-6253463a3" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Visit my LinkedIn profile"><i class="ri-linkedin-fill text-xl"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -9,10 +9,16 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      redirect_to root_path, notice: "Merci pour votre message. Je vous recontacte très vite !"
+      redirect_to confirmation_contact_path(@contact), notice: "Merci pour votre message !"
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def confirmation
+    @contact = Contact.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: "Contact introuvable."
   end
 
   private

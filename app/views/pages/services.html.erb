@@ -1,3 +1,6 @@
+<% content_for :title, "Mes Services | Freelance Développeur Full-Stack — RêvesDev" %>
+<% content_for :description, "Découvrez mes services : développement front-end, architecture back-end en Ruby on Rails, et DevOps. Création d'applications web, SaaS et MVPs tailorisés à vos besoins." %>
+
 <div class="w-full max-w-4xl mx-auto mb-20 pt-32 px-4">
   <div class="text-center mb-12">
     <h1 class="font-heading text-4xl md:text-5xl font-bold mb-6">Mes <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Services</span></h1>
@@ -5,8 +8,8 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Service 1 -->
-      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-primary/5">
-          <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-primary/5" aria-label="Frontend development services">
+          <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform" aria-hidden="true">
               <i class="ri-code-s-slash-line text-2xl"></i>
           </div>
           <h3 class="text-xl font-bold font-heading mb-3">Développement Front-End</h3>
@@ -15,8 +18,8 @@
           </p>
       </div>
       <!-- Service 2 -->
-      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-secondary/5">
-          <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-secondary/5" aria-label="Backend architecture services">
+          <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform" aria-hidden="true">
               <i class="ri-server-line text-2xl"></i>
           </div>
           <h3 class="text-xl font-bold font-heading mb-3">Architecture Back-End</h3>
@@ -25,8 +28,8 @@
           </p>
       </div>
       <!-- Service 3 -->
-      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-purple-500/5">
-          <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+      <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group shadow-xl shadow-purple-500/5" aria-label="Deployment and DevOps services">
+          <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true">
               <i class="ri-rocket-line text-2xl"></i>
           </div>
           <h3 class="text-xl font-bold font-heading mb-3">Déploiement & DevOps</h3>
@@ -37,6 +40,6 @@
   </div>
   <div class="mt-16 text-center">
       <h2 class="text-2xl font-bold font-heading mb-4 text-white">Prêt à concrétiser votre idée ?</h2>
-      <%= link_to "Décrivez-moi votre besoin", new_contact_path, class: "inline-block bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all duration-300 px-6 py-3 rounded-full font-medium" %>
+      <%= link_to "Décrivez-moi votre besoin", new_contact_path, class: "inline-block bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all duration-300 px-6 py-3 rounded-full font-medium", aria_label: "Contact me to discuss your project needs" %>
   </div>
 </div>

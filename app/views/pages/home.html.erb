@@ -1,10 +1,40 @@
+<!-- SEO Meta Tags for Home -->
+<% content_for :title, "Développeur Full-Stack Ruby on Rails | Création d'Applications Web & SaaS — RêvesDev" %>
+<% content_for :description, "Je transforme vos idées en applications web performantes. Freelance Full-Stack spécialisé en Ruby on Rails, React et PostgreSQL. Créons votre MVP ou SaaS." %>
+<% content_for :og_image, asset_url('icon.png') %>
+
+<% content_for :json_ld_schema do %>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Développeur Full-Stack Ruby on Rails",
+    "description": "Je transforme vos idées en applications web performantes. Freelance Full-Stack spécialisé en Ruby on Rails, React et PostgreSQL.",
+    "url": "<%= root_url %>",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "RêvesDev",
+      "image": "<%= asset_url('icon.png') %>",
+      "description": "Développeur Full-Stack spécialisé en Ruby on Rails",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 chemin de la fourniserie",
+        "addressLocality": "Salles-Curan",
+        "postalCode": "12410",
+        "addressCountry": "FR"
+      },
+      "knowsAbout": ["Ruby on Rails", "React", "PostgreSQL", "Docker", "Tailwind CSS"],
+      "url": "<%= root_url %>"
+    }
+  }
+<% end %>
+
 <!-- Hero Section -->
 <main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
     <!-- Glow effects de fond -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-secondary text-sm font-semibold tracking-wide mb-6">
+        <span class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-secondary text-sm font-semibold tracking-wide mb-6" aria-label="Status: Available for new projects">
             🚀 Disponible pour de nouveaux projets
         </span>
         <h1 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
@@ -15,10 +45,10 @@
             Développeur Full-Stack (Ruby on Rails / React) spécialisé dans la création de SaaS, Marketplaces et architectures complexes.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <%= link_to projects_path, class: "bg-primary hover:bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgb(99,102,241,0.39)] hover:shadow-[0_6px_20px_rgba(99,102,241,0.23)] hover:-translate-y-1" do %>
+            <%= link_to projects_path, class: "bg-primary hover:bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgb(99,102,241,0.39)] hover:shadow-[0_6px_20px_rgba(99,102,241,0.23)] hover:-translate-y-1", aria_label: "View my portfolio projects" do %>
                 Voir mes Réalisations
             <% end %>
-            <%= link_to new_contact_path, class: "glass text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300" do %>
+            <%= link_to new_contact_path, class: "glass text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300", aria_label: "Contact me to discuss your project" do %>
                 Discuter de votre Projet
             <% end %>
         </div>
@@ -36,7 +66,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Service 1 -->
             <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-code-s-slash-line text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold font-heading mb-3">Développement Front-End</h3>
@@ -46,7 +76,7 @@
             </div>
             <!-- Service 2 -->
             <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-server-line text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold font-heading mb-3">Architecture Back-End</h3>
@@ -56,7 +86,7 @@
             </div>
             <!-- Service 3 -->
             <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform">
+                <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-rocket-line text-2xl"></i>
                 </div>
                 <h3 class="text-xl font-bold font-heading mb-3">Déploiement & DevOps</h3>
@@ -76,7 +106,7 @@
                 <h2 class="font-heading text-3xl md:text-4xl font-bold">Projets Récents</h2>
                 <p class="mt-4 text-slate-400">Quelques exemples de réalisations récentes.</p>
             </div>
-            <%= link_to projects_path, class: "hidden sm:inline-flex items-center text-primary font-medium hover:text-indigo-400 hover:underline underline-offset-4" do %>
+            <%= link_to projects_path, class: "hidden sm:inline-flex items-center text-primary font-medium hover:text-indigo-400 hover:underline underline-offset-4", aria_label: "View all portfolio projects" do %>
                 Voir tout le portfolio <i class="ri-arrow-right-line ml-2"></i>
             <% end %>
         </div>
@@ -84,10 +114,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <% if @featured_projects.any? %>
                 <% @featured_projects.each do |project| %>
-                    <%= link_to project, class: "group relative rounded-2xl overflow-hidden glass block" do %>
+                    <%= link_to project, class: "group relative rounded-2xl overflow-hidden glass block", aria_label: "View project: #{project.title}" do %>
                         <div class="aspect-video bg-slate-800 relative w-full flex items-center justify-center">
                             <% if project.cover_image.attached? %>
-                                <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" %>
+                                <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105", alt: project.title %>
                             <% else %>
                                 <span class="text-slate-500 font-mono text-sm">[Sans image]</span>
                             <% end %>
@@ -95,7 +125,7 @@
                         </div>
                         <div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform">
                             <% if project.tech_stack.present? %>
-                                <div class="flex flex-wrap gap-2 mb-3">
+                                <div class="flex flex-wrap gap-2 mb-3" aria-label="Technologies used">
                                     <% project.tech_stack.split(',').each do |tech| %>
                                         <span class="text-xs font-semibold bg-white/10 px-2 py-1 rounded backdrop-blur-sm"><%= tech.strip %></span>
                                     <% end %>
@@ -114,3 +144,4 @@
         </div>
     </div>
 </section>
+

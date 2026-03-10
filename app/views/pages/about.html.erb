@@ -1,3 +1,6 @@
+<% content_for :title, "À propos de moi | Remy Finot - Développeur Full-Stack" %>
+<% content_for :description, "Découvrez l'histoire de Remy Finot, développeur Full-Stack passionné par la création d'applications web modernes et performantes avec Ruby on Rails et React." %>
+
 <div class="w-full max-w-4xl mx-auto mb-20 pt-32 px-4">
   <div class="mb-12 text-center">
     <h1 class="font-heading text-4xl md:text-5xl font-bold mb-6">À <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">propos</span> de moi</h1>
@@ -12,7 +15,7 @@
         en leur proposant des solutions sur mesure qui s'appuient sur les meilleures technologies actuelles (Ruby on Rails, Tailwind CSS, etc).
     </p>
     <div class="mt-8 text-center pt-6 border-t border-white/10">
-        <%= link_to "Me contacter", new_contact_path, class: "text-primary hover:text-white font-medium transition-colors" %>
+        <%= link_to "Me contacter", new_contact_path, class: "text-primary hover:text-white font-medium transition-colors", aria_label: "Contact me for your project" %>
     </div>
   </div>
 </div>

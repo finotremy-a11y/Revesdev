@@ -1,0 +1,41 @@
+<% if content_for?(:json_ld_schema) %>
+  <%= tag.script type: "application/ld+json" do %>
+    <%= raw yield(:json_ld_schema) %>
+  <% end %>
+<% else %>
+  <!-- Organization Schema (Global) -->
+  <%= tag.script type: "application/ld+json" do %>
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "RêvesDev - Remy Finot",
+      "alternateName": "RêvesDev",
+      "description": "Développeur Full-Stack spécialisé en Ruby on Rails et création d'applications web modernes",
+      "url": "<%= root_url %>",
+      "telephone": "+33-6-XX-XX-XX-XX",
+      "email": "remyfinot.pro@gmail.com",
+      "areaServed": "FR",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 chemin de la fourniserie",
+        "addressLocality": "Salles-Curan",
+        "postalCode": "12410",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://github.com/finotremy-a11y",
+        "https://www.linkedin.com/in/remy-finot-6253463a3"
+      ],
+      "image": "<%= asset_url('icon.png') %>",
+      "knowsAbout": [
+        "Ruby on Rails",
+        "React",
+        "PostgreSQL",
+        "Docker",
+        "Tailwind CSS",
+        "Hotwire"
+      ]
+    }
+  <% end %>
+<% end %>
