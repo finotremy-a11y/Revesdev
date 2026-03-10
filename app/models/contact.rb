@@ -9,5 +9,7 @@ class Contact < ApplicationRecord
 
   def send_notification_email
     ContactMailer.with(contact: self).new_contact_email.deliver_now
+  rescue StandardError => e
+    Rails.logger.error "Email delivery failed: #{e.message}"
   end
 end
