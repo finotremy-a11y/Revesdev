@@ -69,6 +69,6 @@ group :test do
   gem "minitest", "< 6.0"
 end
 
-gem "cloudinary", "~> 2.4"
+gem "cloudinary", "~> 1.28"
 
 gem "sqlite3", "~> 2.1", groups: [:development, :test]
