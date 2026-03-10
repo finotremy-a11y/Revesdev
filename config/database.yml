@@ -1,4 +1,4 @@
-# SQLite for development and test (no server required)
+# SQLite for development and test
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -12,22 +12,20 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
-# PostgreSQL for production (Render provides DATABASE_URL automatically)
+# PostgreSQL for production — all connections use the same single DATABASE_URL
 production:
   primary: &primary_production
     adapter: postgresql
     encoding: unicode
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     url: <%= ENV["DATABASE_URL"] %>
+  # Solid Queue, Cache and Cable all share the primary database (single-DB Render plan)
   cache:
     <<: *primary_production
-    database: <%= URI.parse(ENV["DATABASE_URL"]).path.delete_prefix("/") + "_cache" rescue "novaweb_production_cache" %>
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: <%= URI.parse(ENV["DATABASE_URL"]).path.delete_prefix("/") + "_queue" rescue "novaweb_production_queue" %>
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: <%= URI.parse(ENV["DATABASE_URL"]).path.delete_prefix("/") + "_cable" rescue "novaweb_production_cable" %>
     migrations_paths: db/cable_migrate
