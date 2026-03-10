@@ -16,4 +16,4 @@ databases:
   - name: novaweb-db
     databaseName: novaweb_production
     user: novaweb_user
-    plan: starter
+    plan: free
