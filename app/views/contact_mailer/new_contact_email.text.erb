@@ -1,3 +1,29 @@
-Contact#new_contact_email
+════════════════════════════════════════
+   REVESDEV — NOUVEAU MESSAGE REÇU
+════════════════════════════════════════
 
-<%= @greeting %>, find me in app/views/contact_mailer/new_contact_email.text.erb
+Reçu le : <%= Time.current.strftime("%d/%m/%Y à %H:%M") %>
+
+----------------------------------------
+EXPÉDITEUR
+----------------------------------------
+Nom    : <%= @contact.name %>
+E-mail : <%= @contact.email %>
+<% if @contact.subject.present? %>Sujet  : <%= @contact.subject %>
+<% end %>
+----------------------------------------
+MESSAGE
+----------------------------------------
+
+<%= @contact.message %>
+
+----------------------------------------
+
+Pour répondre, écris directement à :
+<%= @contact.email %>
+
+────────────────────────────────────────
+Notification automatique — revesdev.fr
+Ce message a été envoyé depuis le
+formulaire de contact de ton site.
+────────────────────────────────────────
