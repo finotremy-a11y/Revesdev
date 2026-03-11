@@ -88,7 +88,7 @@
                 <tr>
                   <td style="border-radius:50px;background:linear-gradient(135deg,#6366f1,#22d3ee);">
                     <a href="mailto:<%= @contact.email %>?subject=Re: <%= @contact.subject.presence || 'Votre message' %>&body=Bonjour <%= @contact.name %>,%0A%0A"
-                       style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:50px;">
+                      style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:50px;">
                       Répondre à <%= @contact.name %> →
                     </a>
                   </td>
