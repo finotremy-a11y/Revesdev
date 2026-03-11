@@ -1,5 +1,6 @@
 class ContactMailer < ApplicationMailer
   default to: "remyfinot.pro@gmail.com"
+  layout false
 
   def new_contact_email
     @contact = params[:contact]
