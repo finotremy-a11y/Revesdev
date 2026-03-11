@@ -1,4 +1,4 @@
-# SQLite for development and test
+# SQLite for development, PostgreSQL for CI/test via DATABASE_URL
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -6,11 +6,19 @@ default: &default
 
 development:
   <<: *default
+  adapter: sqlite3
   database: storage/development.sqlite3
 
 test:
   <<: *default
+  <%- if ENV["DATABASE_URL"] -%>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV["DATABASE_URL"] %>/novaweb_test
+  <%- else -%>
+  adapter: sqlite3
   database: storage/test.sqlite3
+  <%- end -%>
 
 # PostgreSQL for production — all connections use the same single DATABASE_URL
 production:
