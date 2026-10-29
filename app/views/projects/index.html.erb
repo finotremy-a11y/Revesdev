@@ -1,4 +1,4 @@
-<div class="w-full pt-32 px-4">
+<main id="main-content" class="w-full pt-32 px-4">
   <div class="text-center mb-16">
     <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Mon <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Portfolio</span></h1>
     <p class="text-slate-400 text-lg">Découvrez mes derniers projets et réalisations.</p>
@@ -10,9 +10,9 @@
          <%= link_to project, class: "group relative rounded-2xl overflow-hidden glass block" do %>
             <div class="aspect-video bg-slate-800 relative w-full flex items-center justify-center">
                 <% if project.cover_image.attached? %>
-                    <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" %>
+                    <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105", alt: "" %>
                 <% else %>
-                    <span class="text-slate-500 font-mono text-sm">[Sans image]</span>
+                    <span class="text-slate-400 font-mono text-sm">[Sans image]</span>
                 <% end %>
                 <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
             </div>
@@ -25,15 +25,15 @@
                     </div>
                 <% end %>
                 <h3 class="text-2xl font-bold font-heading"><%= project.title %></h3>
-                <p class="text-slate-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"><%= truncate(project.description, length: 100) %></p>
+                <p class="text-slate-300 mt-2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300"><%= truncate(project.description, length: 100) %></p>
             </div>
          <% end %>
       <% end %>
     </div>
   <% else %>
     <div class="glass p-10 rounded-2xl text-center max-w-2xl mx-auto mb-20">
-        <i class="ri-folder-open-line text-4xl text-primary mb-4 inline-block"></i>
+        <i class="ri-folder-open-line text-4xl text-indigo-400 mb-4 inline-block"></i>
         <p class="text-slate-300">Le portfolio est actuellement en cours de construction.</p>
     </div>
   <% end %>
-</div>
+</main>

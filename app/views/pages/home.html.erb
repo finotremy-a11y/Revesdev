@@ -1,20 +1,20 @@
 <!-- SEO Meta Tags for Home -->
-<% content_for :title, "Développeur Full-Stack Ruby on Rails | Création d'Applications Web & SaaS — RêvesDev" %>
-<% content_for :description, "Je transforme vos idées en applications web performantes. Freelance Full-Stack spécialisé en Ruby on Rails, React et PostgreSQL. Créons votre MVP ou SaaS." %>
+<% content_for :title, "Logiciels métiers, automatisation et IA sur-mesure | Développeur Full-Stack — RêvesDev" %>
+<% content_for :description, "Développement d'applications web, logiciels métiers et solutions IA sur-mesure. Des plateformes robustes et évolutives pour répondre à vos enjeux métiers." %>
 <% content_for :og_image, "#{request.base_url}/icon.png" %>
 
 <% content_for :json_ld_schema do %>
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Développeur Full-Stack Ruby on Rails",
-    "description": "Je transforme vos idées en applications web performantes. Freelance Full-Stack spécialisé en Ruby on Rails, React et PostgreSQL.",
+    "name": "Logiciels métiers, automatisation et IA sur-mesure",
+    "description": "Développement d'applications web, logiciels métiers et solutions IA sur-mesure.",
     "url": "<%= root_url %>",
     "mainEntity": {
       "@type": "LocalBusiness",
       "name": "RêvesDev",
       "image": "<%= "#{request.base_url}/icon.png" %>",
-      "description": "Développeur Full-Stack spécialisé en Ruby on Rails",
+      "description": "Développeur Full-Stack (Ruby on Rails, C#, .NET) : logiciels métiers, automatisation et IA",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "10 chemin de la fourniserie",
@@ -22,34 +22,33 @@
         "postalCode": "12410",
         "addressCountry": "FR"
       },
-      "knowsAbout": ["Ruby on Rails", "React", "PostgreSQL", "Docker", "Tailwind CSS"],
+      "knowsAbout": ["Ruby on Rails", "C#", ".NET", "PostgreSQL", "Docker", "Tailwind CSS"],
       "url": "<%= root_url %>"
     }
   }
 <% end %>
 
 <!-- Hero Section -->
-<main class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+<main id="main-content" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
     <!-- Glow effects de fond -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-secondary text-sm font-semibold tracking-wide mb-6" aria-label="Status: Available for new projects">
+        <span class="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-secondary text-sm font-semibold tracking-wide mb-6">
             🚀 Disponible pour de nouveaux projets
         </span>
         <h1 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
-            Je transforme vos idées en <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Applications Web Performantes</span>
+            Développement d'applications web, logiciels métiers et solutions IA sur-mesure.
         </h1>
         <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
-            Développeur Full-Stack (Ruby on Rails / React) spécialisé dans la création de SaaS, Marketplaces et architectures complexes.
+            Des solutions numériques robustes et évolutives, conçues pour répondre à vos enjeux métiers.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <%= link_to projects_path, class: "bg-primary hover:bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgb(99,102,241,0.39)] hover:shadow-[0_6px_20px_rgba(99,102,241,0.23)] hover:-translate-y-1", aria_label: "View my portfolio projects" do %>
+            <%= link_to projects_path, class: "bg-primary hover:bg-indigo-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_0_rgb(99,102,241,0.39)] hover:shadow-[0_6px_20px_rgba(99,102,241,0.23)] hover:-translate-y-1" do %>
                 Voir mes Réalisations
             <% end %>
-            <%= link_to new_contact_path, class: "glass text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300", aria_label: "Contact me to discuss your project" do %>
-                Discuter de votre Projet
+            <%= link_to new_contact_path, class: "glass text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300" do %>
+                Échanger sur votre besoin
             <% end %>
         </div>
     </div>
@@ -59,19 +58,19 @@
 <section id="services" class="py-20 bg-surface">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="font-heading text-3xl md:text-4xl font-bold">Mon Expertise Technique</h2>
-            <p class="mt-4 text-slate-400">De la conception de la base de données à l'interface utilisateur.</p>
+            <h2 class="font-heading text-3xl md:text-4xl font-bold">Des solutions conçues pour vos enjeux</h2>
+            <p class="mt-4 text-slate-400">Des outils numériques fiables, adaptés à vos processus et à vos objectifs.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Service 1 -->
             <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 group">
-                <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform" aria-hidden="true">
+                <div class="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-code-s-slash-line text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold font-heading mb-3">Développement Front-End</h3>
+                <h3 class="text-xl font-bold font-heading mb-3">Logiciels et Applications sur-mesure</h3>
                 <p class="text-slate-400 leading-relaxed">
-                    Création d'interfaces modernes, réactives et accessibles avec React, Hotwire, ou Tailwind CSS. Focus sur l'expérience et la performance.
+                    Création de plateformes web complètes, robustes et évolutives pour répondre à vos enjeux métiers.
                 </p>
             </div>
             <!-- Service 2 -->
@@ -79,9 +78,9 @@
                 <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-server-line text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold font-heading mb-3">Architecture Back-End</h3>
+                <h3 class="text-xl font-bold font-heading mb-3">Automatisation</h3>
                 <p class="text-slate-400 leading-relaxed">
-                    Conception d'APIs robustes, structuration de base de données (PostgreSQL) et logique métier avec Ruby on Rails.
+                    Développement d'outils sur-mesure pour supprimer vos tâches chronophages et exploiter vos données stratégiques.
                 </p>
             </div>
             <!-- Service 3 -->
@@ -89,11 +88,32 @@
                 <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition-transform" aria-hidden="true">
                     <i class="ri-rocket-line text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-bold font-heading mb-3">Déploiement & DevOps</h3>
+                <h3 class="text-xl font-bold font-heading mb-3">Intégration d'Intelligence Artificielle</h3>
                 <p class="text-slate-400 leading-relaxed">
-                    Mise en production sécurisée, intégration continue (CI/CD), conteneurisation et hébergement cloud performant.
+                    Modernisation de vos processus internes via l'intégration d'API et la création d'agents IA connectés à vos flux.
                 </p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Method Section -->
+<section id="methode" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold">Une méthode claire, de A à Z</h2>
+            <p class="mt-4 text-slate-400">Un déroulé transparent pour maîtriser délais, périmètre et qualité.</p>
+        </div>
+        <ol class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <li class="glass p-6 rounded-2xl"><span class="text-secondary font-heading font-bold text-sm">01</span><h3 class="text-lg font-bold font-heading mt-2 mb-2">Cadrage</h3><p class="text-slate-400 text-sm leading-relaxed">Analyse du besoin, du périmètre et des contraintes.</p></li>
+            <li class="glass p-6 rounded-2xl"><span class="text-secondary font-heading font-bold text-sm">02</span><h3 class="text-lg font-bold font-heading mt-2 mb-2">Conception</h3><p class="text-slate-400 text-sm leading-relaxed">Architecture, maquettes et plan de livraison validés.</p></li>
+            <li class="glass p-6 rounded-2xl"><span class="text-secondary font-heading font-bold text-sm">03</span><h3 class="text-lg font-bold font-heading mt-2 mb-2">Développement et recette</h3><p class="text-slate-400 text-sm leading-relaxed">Livraisons itératives, tests et validation avec vous.</p></li>
+            <li class="glass p-6 rounded-2xl"><span class="text-secondary font-heading font-bold text-sm">04</span><h3 class="text-lg font-bold font-heading mt-2 mb-2">Déploiement et suivi</h3><p class="text-slate-400 text-sm leading-relaxed">Mise en production, documentation et maintenance.</p></li>
+        </ol>
+        <div class="text-center mt-10">
+            <%= link_to secteur_public_path, class: "inline-flex items-center text-indigo-400 font-medium hover:text-indigo-300 hover:underline underline-offset-4" do %>
+                Collectivités, institutions et marchés publics <i class="ri-arrow-right-line ml-2"></i>
+            <% end %>
         </div>
     </div>
 </section>
@@ -106,7 +126,7 @@
                 <h2 class="font-heading text-3xl md:text-4xl font-bold">Projets Récents</h2>
                 <p class="mt-4 text-slate-400">Quelques exemples de réalisations récentes.</p>
             </div>
-            <%= link_to projects_path, class: "hidden sm:inline-flex items-center text-primary font-medium hover:text-indigo-400 hover:underline underline-offset-4", aria_label: "View all portfolio projects" do %>
+            <%= link_to projects_path, class: "hidden sm:inline-flex items-center text-indigo-400 font-medium hover:text-indigo-300 hover:underline underline-offset-4" do %>
                 Voir tout le portfolio <i class="ri-arrow-right-line ml-2"></i>
             <% end %>
         </div>
@@ -114,18 +134,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <% if @featured_projects.any? %>
                 <% @featured_projects.each do |project| %>
-                    <%= link_to project, class: "group relative rounded-2xl overflow-hidden glass block", aria_label: "View project: #{project.title}" do %>
+                    <%= link_to project, class: "group relative rounded-2xl overflow-hidden glass block" do %>
                         <div class="aspect-video bg-slate-800 relative w-full flex items-center justify-center">
                             <% if project.cover_image.attached? %>
-                                <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105", alt: project.title %>
+                                <%= image_tag project.cover_image, class: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105", alt: "" %>
                             <% else %>
-                                <span class="text-slate-500 font-mono text-sm">[Sans image]</span>
+                                <span class="text-slate-400 font-mono text-sm">[Sans image]</span>
                             <% end %>
                             <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                         </div>
                         <div class="absolute bottom-0 left-0 p-8 w-full translate-y-4 group-hover:translate-y-0 transition-transform">
                             <% if project.tech_stack.present? %>
-                                <div class="flex flex-wrap gap-2 mb-3" aria-label="Technologies used">
+                                <div class="flex flex-wrap gap-2 mb-3">
                                     <% project.tech_stack.split(',').each do |tech| %>
                                         <span class="text-xs font-semibold bg-white/10 px-2 py-1 rounded backdrop-blur-sm"><%= tech.strip %></span>
                                     <% end %>
@@ -137,11 +157,10 @@
                     <% end %>
                 <% end %>
             <% else %>
-                <div class="col-span-full text-center text-slate-500 py-12">
+                <div class="col-span-full text-center text-slate-400 py-12">
                      <p>Aucun projet en vedette pour le moment.</p>
                 </div>
             <% end %>
         </div>
     </div>
 </section>
-

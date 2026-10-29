@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "pages#home"
   get "about", to: "pages#about"
   get "services", to: "pages#services"
+  get "secteur-public", to: "pages#secteur_public", as: :secteur_public
   get "mentions-legales", to: "pages#mentions_legales", as: :mentions_legales
   get "politique-de-confidentialite", to: "pages#politique_confidentialite", as: :politique_confidentialite
   get "cgu", to: "pages#cgu", as: :cgu

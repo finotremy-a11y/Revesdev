@@ -5,13 +5,13 @@
         bg_class = case type.to_sym
                    when :notice, :success then "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
                    when :alert, :error then "bg-red-500/10 border-red-500/20 text-red-400"
-                   else "bg-primary/10 border-primary/20 text-primary"
+                   else "bg-primary/10 border-primary/20 text-indigo-400"
                    end
       %>
-      <div class="glass <%= bg_class %> px-4 py-3 rounded-lg shadow-lg flex items-center justify-between min-w-[300px] animate-fade-in-down">
+      <div data-controller="dismissible" role="<%= %i[alert error].include?(type.to_sym) ? "alert" : "status" %>" class="glass <%= bg_class %> px-4 py-3 rounded-lg shadow-lg flex items-center justify-between min-w-[300px] animate-fade-in-down">
         <span><%= msg %></span>
-        <button onclick="this.parentElement.remove()" class="ml-4 hover:opacity-75 transition-opacity">
-          <i class="ri-close-line"></i>
+        <button type="button" aria-label="Fermer le message" data-action="dismissible#close" class="ml-4 hover:opacity-75 transition-opacity">
+          <i class="ri-close-line" aria-hidden="true"></i>
         </button>
       </div>
     <% end %>

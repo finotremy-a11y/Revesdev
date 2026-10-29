@@ -11,6 +11,9 @@ class PagesController < ApplicationController
   def services
   end
 
+  def secteur_public
+  end
+
   def mentions_legales
   end
 
